@@ -1,0 +1,377 @@
+/* css/style.css */
+
+/* Hero Section Overlay */
+.hero-section {
+    position: relative;
+    height: 30vh;
+    background-image: url('../assets/jbrec 6.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-section .content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Optional: Footer links hover */
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Fixes */
+  @media (max-width: 768px) {
+    .hero-section {
+      height: 50vh;
+    }
+  }
+
+  /* Optional: Add in css/style.css if you want tighter layout */
+@media (min-width: 768px) {
+    .about-section img {
+      max-height: 250px;
+    }
+  }
+
+  .about-text {
+    flex: 1;
+  }
+  
+  .about-image {
+    flex-shrink: 0;
+  }
+
+  /* Reset some default styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Navbar */
+.navbar-brand h6 {
+  font-weight: 600;
+}
+
+.navbar a {
+  font-weight: 500;
+}
+
+/* Hero banner */
+.hero-banner {
+  position: relative;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-banner h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Section titles */
+.container h3 {
+  font-weight: 600;
+  color: #0d6efd;
+}
+
+/* Event Cards */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body h5 {
+  font-weight: 600;
+  color: #212529;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+/* Footer */
+footer {
+  background-color: #f1f1f1;
+  font-size: 14px;
+}
+
+footer img {
+  margin: 0 5px;
+  transition: transform 0.3s ease;
+}
+
+footer img:hover {
+  transform: scale(1.1);
+}
+
+footer p {
+  margin-bottom: 4px;
+}
+
+/* Responsive image height fix for cards */
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 160px;
+  }
+}
+
+/* Reset some default styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Navbar */
+.navbar-brand h6 {
+  font-weight: 600;
+}
+
+.navbar a {
+  font-weight: 500;
+}
+
+/* Hero banner */
+.hero-banner {
+  position: relative;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-banner h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Section titles */
+.container h3 {
+  font-weight: 600;
+  color: #0d6efd;
+}
+
+/* Event Cards */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(114, 176, 228, 0.1);
+}
+
+.card-img-top {
+  height: 100px;
+  object-fit: cover;
+}
+
+.card-body h5 {
+  font-weight: 600;
+  color: #212529;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #d7e32b;
+}
+
+/* Footer */
+footer {
+  background-color: #f1f1f1;
+  font-size: 14px;
+}
+
+footer img {
+  margin: 0 5px;
+  transition: transform 0.3s ease;
+}
+
+footer img:hover {
+  transform: scale(1.1);
+}
+
+footer p {
+  margin-bottom: 4px;
+}
+
+/* Responsive image height fix for cards */
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 160px;
+  }
+}
+
+  /* ========================
+   General Section Styling
+======================== */
+
+.contact-team {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f4f6fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #002b5b;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+  
+  /* ========================
+     Accordion Styling
+  ======================== */
+  
+  .accordion-item {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .accordion-toggle {
+    background-color: #004aad;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+  }
+  
+  .accordion-toggle:hover {
+    background-color: #00327a;
+  }
+  
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 1.5rem;
+  }
+  
+  .accordion-content.open {
+    max-height: 1000px;
+    padding: 1rem 1.5rem;
+  }
+  
+  /* ========================
+     Responsive Table Styling
+  ======================== */
+  
+  .table-responsive {
+    overflow-x: auto;
+    margin-top: 1rem;
+  }
+  
+  .team-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 600px;
+    font-size: 0.95rem;
+  }
+  
+  .team-table th,
+  .team-table td {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .team-table th {
+    background-color: #004aad;
+    color: white;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  
+  .team-table tr:nth-child(even) {
+    background-color: #f7f9fc;
+  }
+  
+  @media (max-width: 768px) {
+    .team-table {
+      font-size: 0.85rem;
+      min-width: unset;
+    }
+  }
+  
