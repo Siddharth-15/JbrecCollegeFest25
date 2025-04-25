@@ -1,447 +1,726 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Events | College Fest</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;600&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+  <style>
+    :root {
+      --bg-color: #1a0b3b;
+      /* Deep indigo for cosmic night sky */
+      --text-color: #e8e8f0;
+      /* Soft starlight silver */
+      --card-bg: #2b1b5e;
+      /* Slightly lighter indigo */
+      --accent-color: #a100ff;
+      /* Vibrant amethyst */
+      --secondary-color: #00ddeb;
+      /* Cyan glow */
+      --header-bg: linear-gradient(135deg, #1a0b3b, #a100ff 50%, #00ddeb);
+      /* Cosmic indigo to amethyst and cyan */
+      --nav-bg: #2b1b5e;
+      --shadow-color: rgba(161, 0, 255, 0.3);
+    }
 
-<!-- HEADER: Logo + College Name -->
-<header class="bg-light py-3 border-bottom">
-    <div class="container d-flex align-items-center">
-      <img src="assets/JBREC LOGO.jpg" alt="Logo" width="80" class="me-3">
+    [data-theme="light"] {
+      --bg-color: #f5f5f5;
+      /* Soft white for light theme */
+      --text-color: #1a0b3b;
+      /* Deep indigo for contrast */
+      --card-bg: #ffffff;
+      /* Pure white cards */
+      --accent-color: #a100ff;
+      /* Same vibrant amethyst */
+      --secondary-color: #00ddeb;
+      /* Same cyan glow */
+      --header-bg: linear-gradient(135deg, #1a0b3b, #a100ff 50%, #00ddeb);
+      /* Same gradient as dark */
+      --hero-overlay: linear-gradient(to bottom, rgba(26, 11, 59, 0.6), rgba(161, 0, 255, 0.1));
+      /* Slightly lighter overlay */
+      --nav-bg: #ffffff;
+      /* White nav for light theme */
+      --shadow-color: rgba(161, 0, 255, 0.2);
+      /* Softer shadow */
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"%3E%3Cpath fill="none" stroke="%23a100ff" stroke-opacity="0.15" d="M40 40 L160 160 M160 40 L40 160 M100 20 L100 180 M20 100 L180 100"/%3E%3C/svg%3E');
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    [data-theme="light"] body::before {
+      background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"%3E%3Cpath fill="none" stroke="%23c54bff" stroke-opacity="0.15" d="M40 40 L160 160 M160 40 L40 160 M100 20 L100 180 M20 100 L180 100"/%3E%3C/svg%3E');
+    }
+
+    header {
+      background: var(--header-bg);
+      padding: 2rem 0;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 0 20px var(--shadow-color);
+    }
+
+    header .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    header img {
+      border-radius: 50%;
+      border: 4px solid var(--text-color);
+      margin-right: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.1);
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin: 0.5rem 0 0;
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      transition: transform 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(180deg);
+    }
+
+    nav {
+      background: var(--nav-bg);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 5px var(--shadow-color);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0 2rem;
+    }
+
+    nav ul li a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent-color);
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -4px;
+      left: 0;
+      background: var(--accent-color);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 1rem;
+      position: relative;
+      background: url('https://source.unsplash.com/random/1600x400/?event') no-repeat center center/cover;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(26, 11, 59, 0.8), rgba(161, 0, 255, 0.2));
+      /* Indigo to amethyst tint */
+      z-index: 1;
+    }
+
+    [data-theme="light"] .hero::before {
+      /* background: linear-gradient(to bottom, rgba(255, 215, 0, 0.8), rgba(218, 165, 32, 0.2)); */
+      background: linear-gradient(to bottom, rgba(26, 11, 59, 0.8), rgba(161, 0, 255, 0.2));
+      /* Golden theme: gold to goldenrod tint */
+    }
+
+    .hero h2,
+    .hero p {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+    }
+
+    .hero h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #ffffff;
+      /* Solid white for high contrast */
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .event-section {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .event-section h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .event-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 20px var(--shadow-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid var(--accent-color);
+    }
+
+    .event-card:hover {
+      box-shadow: 0 0 30px var(--shadow-color);
+      transform: translateY(-10px) scale(1.1);
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      filter: brightness(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .event-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .event-card div {
+      padding: 1.5rem;
+    }
+
+    .event-card h4 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      color: var(--text-color);
+      margin: 0 0 0.75rem;
+      font-weight: 700;
+    }
+
+    .event-card p {
+      font-size: 1rem;
+      color: var(--text-color);
+      opacity: 0.9;
+      margin: 0 0 1.5rem;
+      line-height: 1.5;
+    }
+
+    .event-card a {
+      display: inline-block;
+      background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .event-card a:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      background: var(--nav-bg);
+      padding: 3rem 1rem;
+      text-align: center;
+      border-top: 2px solid var(--accent-color);
+    }
+
+    footer .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    footer img.logo {
+      border-radius: 10px;
+      border: 2px solid var(--accent-color);
+    }
+
+    footer ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 2rem;
+    }
+
+    footer ul li a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    footer ul li a:hover {
+      color: var(--accent-color);
+    }
+
+    footer .social {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    footer .social p {
+      margin: 0;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    footer .social a img {
+      transition: transform 0.3s ease;
+      filter: brightness(0.9);
+    }
+
+    footer .social a img:hover {
+      transform: rotate(15deg) scale(1.2);
+      filter: brightness(1.2);
+    }
+
+    footer small {
+      display: block;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 0.9rem;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      nav ul li {
+        margin: 0 1rem;
+      }
+
+      .event-section h3 {
+        font-size: 2rem;
+      }
+
+      .event-card h4 {
+        font-size: 1.2rem;
+      }
+
+      .event-card p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      header img {
+        margin: 0 0 1rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .event-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .theme-toggle {
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <!-- HEADER -->
+  <header>
+    <button class="theme-toggle" aria-label="Toggle Theme">🌙</button>
+    <div class="container">
+      <img src="assets/JBREC LOGO.jpg" alt="Logo" width="80">
       <div>
-        <h5 class="mb-0"><strong>Joginpally B.R. Engineering College</strong></h5>
-        <p>Accredited by NAAC with A+, Recognized under 2(f) of UGC Act.1956, ISO 9001:2015 Certified,<br>
-        Yenkapally (V), Moinabad (M), P.O. Himayat Nagar, R.R. District, Hyderabad – 500 075.</p>
+        <h1>Joginpally B.R. Engineering College</h1>
+        <p>
+          Accredited by NAAC with A+, Recognized under 2(f) of UGC Act.1956, ISO 9001:2015 Certified,<br>
+          Yenkapally (V), Moinabad (M), P.O. Himayat Nagar, R.R. District, Hyderabad – 500 075.
+        </p>
       </div>
     </div>
   </header>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
-          <li class="nav-item"><a class="nav-link" href="contactUs.html">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
+  <!-- NAVIGATION -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contactUs.html">Contact Us</a></li>
+    </ul>
   </nav>
 
   <!-- HERO SECTION -->
-  <section class="hero-section d-flex align-items-center justify-content-center text-center text-white">
-    <div class="overlay"></div>
-    <div class="content">
-      <h1>Welcome to Our College Event</h1>
-      <p class="lead">Join us for an unforgettable experience!</p>
+  <section class="hero">
+    <h2>Welcome to Our College Fest</h2>
+    <p>Join us for an unforgettable experience!</p>
+  </section>
+
+  <!-- TECHNICAL EVENTS -->
+  <section class="event-section">
+    <h3>Technical Events (02.05.2025)</h3>
+    <div class="event-grid">
+      <div class="event-card">
+        <img src="assets/Tricky circuits.avif" alt="Tricky Circuits">
+        <div>
+          <h4>Tricky Circuits</h4>
+          <p>Test your circuit logic and design skills in this electrifying challenge!</p>
+          <a href="https://forms.gle/fU4SwZLjcTGKTQcb7">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Project Expo.avif" alt="Project Expo">
+        <div>
+          <h4>Project Expo</h4>
+          <p>Showcase your innovation and present your tech projects.</p>
+          <a href="https://forms.gle/4RJcjPxAjPhukG4S6">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/See it-Name it.avif" alt="See It - Name It">
+        <div>
+          <h4>See It - Name It</h4>
+          <p>Spot logos from tech giants, apps, and gadgets.</p>
+          <a href="https://forms.gle/wg5XnWMPwwHPMeZm6">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Bug bash.avif" alt="Bug Bounty">
+        <div>
+          <h4>Bug Bounty</h4>
+          <p>Debug programs and show your logical thinking.</p>
+          <a href="https://forms.gle/XvWBniYTaVuDfb4c6">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/AI Chatbot.avif" alt="AI Chatbot">
+        <div>
+          <h4>AI Chatbot Building</h4>
+          <p>Build an intelligent chatbot using your AI skills.</p>
+          <a href="https://forms.gle/LJZNExxUpTi1rYnU6">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Quiz.avif" alt="Mechanical Quiz">
+        <div>
+          <h4>Mechanical Quiz</h4>
+          <p>Challenge your mechanical engineering knowledge.</p>
+          <a href="https://forms.gle/6fM4W8qgxYuKBdJ39">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/paper presentation.avif" alt="Paper Presentation">
+        <div>
+          <h4>Paper Presentation</h4>
+          <p>Present your research on trending technologies.</p>
+          <a href="https://forms.gle/SzFquLUcNpL21Gn39">Register</a>
+        </div>
+      </div>
     </div>
   </section>
 
-<!-- Technical Events -->
-<div class="container py-4">
-  <h3 class="mb-4">Technical Events <small class="text-muted">(02.05.2025)</small></h3>
-  <div class="row g-4">
-    <!-- Event Card 1 -->
-    <div class="col-md-6">
-      <div class="card h-100">
-        <div class="row g-0">
-          <div class="col-4">
-            <img src="assets/Tricky circuits.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-          </div>
-          <div class="col-8">
-            <div class="card-body">
-              <h5 class="card-title">Tricky Circuits</h5>
-              <p class="card-text">Test your circuit logic and design skills in this electrifying challenge! 
-                Decode circuit puzzles, troubleshoot faults, and race against time. Are your fundamentals strong enough?</p>
-              <a href="https://forms.gle/fU4SwZLjcTGKTQcb7" class="btn btn-primary btn-sm">Register</a>
-            </div>
-          </div>
+  <!-- NON-TECHNICAL EVENTS -->
+  <section class="event-section">
+    <h3>Non-Technical Events (02.05.2025)</h3>
+    <div class="event-grid">
+      <div class="event-card">
+        <img src="assets/Poster Presentation.avif" alt="Poster Presentation">
+        <div>
+          <h4>Poster Presentation</h4>
+          <p>Design impactful posters to express messages.</p>
+          <a href="https://forms.gle/DKMv9gpkkDqienwa8">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Short Film.avif" alt="Short Film">
+        <div>
+          <h4>Short Film Contest</h4>
+          <p>Showcase your storytelling skills through short films.</p>
+          <a href="https://forms.gle/m9i2Q1wG61jK67es6">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Tug of war.avif" alt="Tug Of War">
+        <div>
+          <h4>Tug Of War</h4>
+          <p>Gather your squad and pull your way to victory.<br><strong>Only For JBREC Students</strong></p>
+          <a href="https://forms.gle/MRCW9MJ9xA9gpAyg8">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Reels making.avif" alt="Reels Making">
+        <div>
+          <h4>Reels Making</h4>
+          <p>Create short and creative reels under 60 seconds.</p>
+          <a href="https://forms.gle/FFupxaFuHRdrp3Kd9">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Photography.avif" alt="Photography">
+        <div>
+          <h4>Photography</h4>
+          <p>Capture moments and tell stories with your photos.</p>
+          <a href="https://forms.gle/hQpDh4Xa6YsrJPeS6">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Treasure Hunt.avif" alt="Treasure Hunt">
+        <div>
+          <h4>Treasure Hunt</h4>
+          <p>Decode clues and race across campus.<br><strong>Only For JBREC Students</strong></p>
+          <a href="https://forms.gle/ofHLrYj3r7BVeasY9">Register</a>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="col-md-6">
-        <div class="card h-100">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="assets/Project Expo.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-            </div>
-            <div class="col-8">
-              <div class="card-body">
-                <h5 class="card-title">Project Expo</h5>
-                <p class="card-text">Showcase your innovation! Present your academic or hobby-based tech projects to a panel of experts and a curious crowd. Let your work speak volumes.</p>
-                <a href="https://forms.gle/4RJcjPxAjPhukG4S6" class="btn btn-primary btn-sm">Register</a>
-              </div>
-            </div>
-          </div>
+  <!-- CULTURAL EVENTS -->
+  <section class="event-section">
+    <h3>Cultural Events (03.05.2025)</h3>
+    <div class="event-grid">
+      <div class="event-card">
+        <img src="assets/Group Dance.avif" alt="Group Dance">
+        <div>
+          <h4>Dance - Group</h4>
+          <p>Team up and light up the stage!</p>
+          <a href="https://forms.gle/yVQs7dqYq3aRxCwr6">Register</a>
         </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="card h-100">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="assets/See it-Name it.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-            </div>
-            <div class="col-8">
-              <div class="card-body">
-                <h5 class="card-title">See It - Name It</h5>
-                <p class="card-text">Think you're a brand expert? Spot logos from tech giants, apps, and gadgets and prove your visual memory is on point!.</p>
-                <a href="https://forms.gle/wg5XnWMPwwHPMeZm6" class="btn btn-primary btn-sm">Register</a>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Duet dance.avif" alt="Dance Duo">
+        <div>
+          <h4>Dance - Duo</h4>
+          <p>Double the energy with a dance partner!</p>
+          <a href="https://forms.gle/rgvwLG952u6kJjuS8">Register</a>
         </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="card h-100">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="assets/Bug bash.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-            </div>
-            <div class="col-8">
-              <div class="card-body">
-                <h5 class="card-title">Bug Bounty</h5>
-                <p class="card-text">Find it, fix it, and flaunt it! Debug programs and show off your logical thinking. Only the sharpest coders survive this arena.</p>
-                <a href="https://forms.gle/XvWBniYTaVuDfb4c6" class="btn btn-primary btn-sm">Register</a>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Solo dance.avif" alt="Solo Dance">
+        <div>
+          <h4>Dance - Solo</h4>
+          <p>Showcase your passion and energy solo!</p>
+          <a href="https://forms.gle/zk7dNULpUmaLHkzH9">Register</a>
         </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="card h-100">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="assets/AI Chatbot.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-            </div>
-            <div class="col-8">
-              <div class="card-body">
-                <h5 class="card-title">AI Chatbot Building</h5>
-                <p class="card-text">Put your AI skills to the test. Build an intelligent chatbot that can carry a conversation, solve a problem, or entertain users. Creativity + Functionality = Winning formula!.</p>
-                <a href="https://forms.gle/LJZNExxUpTi1rYnU6" class="btn btn-primary btn-sm">Register</a>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Duo singing.avif" alt="Duo Singing">
+        <div>
+          <h4>Singing - Duet</h4>
+          <p>Perform a duet and blend your voices.</p>
+          <a href="https://forms.gle/acHUVwYfDKM2F3uz6">Register</a>
         </div>
-    </div>
-
-
-    <div class="col-md-6">
-        <div class="card h-100">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="assets/Quiz.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-            </div>
-            <div class="col-8">
-              <div class="card-body">
-                <h5 class="card-title">Mechanical Quiz</h5>
-                <p class="card-text">A true test for the gearheads! Challenge your knowledge in mechanics, thermodynamics, machines, and more. Solo or in a team – bring your A-game!</p>
-                <a href="https://forms.gle/6fM4W8qgxYuKBdJ39" class="btn btn-primary btn-sm">Register</a>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Singing Competion.avif" alt="Solo Singing">
+        <div>
+          <h4>Singing - Solo</h4>
+          <p>Sing your heart out and impress the crowd!</p>
+          <a href="https://forms.gle/V9Q9PVG4f5rXSQT66">Register</a>
         </div>
-    </div>
-
-    <!-- Event Card 2 -->
-    <div class="col-md-6">
-      <div class="card h-100">
-        <div class="row g-0">
-          <div class="col-4">
-            <img src="assets/paper presentation.avif" class="img-fluid rounded-start" alt="Tech Event 2">
-          </div>
-          <div class="col-8">
-            <div class="card-body">
-              <h5 class="card-title">Paper Presentation</h5>
-              <p class="card-text">Express your research and insights on trending technologies. Present with clarity, confidence, and creativity to impress the jury and peers alike.</p>
-              <a href="https://forms.gle/SzFquLUcNpL21Gn39" class="btn btn-primary btn-sm">Register</a>
-            </div>
-          </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Standup comedy.avif" alt="Stand-Up Comedy">
+        <div>
+          <h4>Stand-Up Comedy</h4>
+          <p>Bring your wit and entertain the audience!</p>
+          <a href="https://forms.gle/brbqD55S8gXfRdjc7">Register</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="assets/Fashion show.avif" alt="Fashion Show">
+        <div>
+          <h4>Fashion Show</h4>
+          <p>Redefine style and elegance on the runway.</p>
+          <a href="https://forms.gle/8anT5RZvhjD3WUyg8">Register</a>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- Non-Technical Events -->
-<div class="container py-4">
-    <h3 class="mb-4">Non - Technical Events <small class="text-muted">(02.05.2025)</small></h3>
-    <div class="row g-4">
-      <!-- Event Card 1 -->
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="assets/Poster Presentation.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-            </div>
-            <div class="col-8">
-              <div class="card-body">
-                <h5 class="card-title">Poster Presentation</h5>
-                <p class="card-text">Art meets intellect. Express powerful messages, ideas, or awareness campaigns through impactful poster designs. It's your canvas – make it speak.</p>
-                <a href="https://forms.gle/DKMv9gpkkDqienwa8" class="btn btn-primary btn-sm">Register</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-6">
-          <div class="card h-100">
-            <div class="row g-0">
-              <div class="col-4">
-                <img src="assets/Short Film.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <h5 class="card-title">Short Film Contest</h5>
-                  <p class="card-text">Lights, camera, action! Show your storytelling skills in short film format. Fiction, documentary, or experimental – your vision, your rules.</p>
-                  <a href="https://forms.gle/m9i2Q1wG61jK67es6" class="btn btn-primary btn-sm">Register</a>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-  
-      <div class="col-md-6">
-          <div class="card h-100">
-            <div class="row g-0">
-              <div class="col-4">
-                <img src="assets/Tug of war.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <h5 class="card-title">Tug Of War</h5>
-                  <p class="card-text">Strength, strategy, and teamwork – the classic battle of brawn is here! Gather your squad and pull your way to victory.</p>
-                  <p><strong>**Only For JBREC Students**</strong></p>
-                  <a href="https://forms.gle/MRCW9MJ9xA9gpAyg8" class="btn btn-primary btn-sm">Register</a>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="assets/Reels making.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-            </div>
-            <div class="col-8">
-              <div class="card-body">
-                <h5 class="card-title">Reels Making</h5>
-                <p class="card-text">Lights, camera, viral! Create a short, engaging, and creative reel (under 60 seconds) based on any theme — comedy, fest highlights, awareness, fashion, or fun! Your editing, creativity, and content will be judged.</p>
-                <a href="https://forms.gle/FFupxaFuHRdrp3Kd9" class="btn btn-primary btn-sm">Register</a>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="card h-100">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="assets/Photography.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-            </div>
-            <div class="col-8">
-              <div class="card-body">
-                <h5 class="card-title">Photography</h5>
-                <p class="card-text">Capture moments, emotions, or the essence of the fest. Submit your best shots and let your lens tell a story worth remembering.</p>
-                <a href="https://forms.gle/hQpDh4Xa6YsrJPeS6" class="btn btn-primary btn-sm">Register</a>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-  
-      <div class="col-md-6">
-          <div class="card h-100">
-            <div class="row g-0">
-              <div class="col-4">
-                <img src="assets/Treasure Hunt.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <h5 class="card-title">Treasure Hunt</h5>
-                  <p class="card-text">Decode clues, solve riddles, and race across campus in search of hidden treasures. Fun, fast-paced, and full of surprises!</p>
-                  <p><strong>**Only For JBREC Students**</strong></p>
-                  <a href="https://forms.gle/ofHLrYj3r7BVeasY9" class="btn btn-primary btn-sm">Register</a>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-
-<!-- Cultural Events -->
-<div class="container py-4">
-    <h3 class="mb-4">Cultural Events <small class="text-muted">(03.05.2025)</small></h3>
-    <div class="row g-4">
-      <!-- Event Card 1 -->
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="assets/Group Dance.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-            </div>
-            <div class="col-8">
-              <div class="card-body">
-                <h5 class="card-title">Dance - Group</h5>
-                <p class="card-text">Team up and light up the stage! Synchronize your steps, bring the vibes, and set the floor ablaze with a group routine that screams unity and talent.</p>
-                <a href="https://forms.gle/yVQs7dqYq3aRxCwr6" class="btn btn-primary btn-sm">Register</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-6">
-          <div class="card h-100">
-            <div class="row g-0">
-              <div class="col-4">
-                <img src="assets/Duet dance.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <h5 class="card-title">Dance - Duo</h5>
-                  <p class="card-text">Double the energy, double the impact! Show your coordination, chemistry, and creativity with a dance partner in a performance that wows the audience.</p>
-                  <a href="https://forms.gle/rgvwLG952u6kJjuS8" class="btn btn-primary btn-sm">Register</a>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-  
-      <div class="col-md-6">
-          <div class="card h-100">
-            <div class="row g-0">
-              <div class="col-4">
-                <img src="assets/Solo dance.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <h5 class="card-title">Dance - Solo</h5>
-                  <p class="card-text">Own the stage with your unique style! Whether it’s classical, hip-hop, or freestyle – showcase your passion and energy in a solo performance that leaves the crowd in awe.</p>
-                  <a href="https://forms.gle/zk7dNULpUmaLHkzH9" class="btn btn-primary btn-sm">Register</a>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-  
-      <div class="col-md-6">
-          <div class="card h-100">
-            <div class="row g-0">
-              <div class="col-4">
-                <img src="assets/Duo singing.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <h5 class="card-title">Singing - Duet</h5>
-                  <p class="card-text">A perfect harmony of voices. Perform a duet with a partner, blend your vocals, and deliver a melody that leaves the audience humming for more.</p>
-                  <a href="https://forms.gle/acHUVwYfDKM2F3uz6" class="btn btn-primary btn-sm">Register</a>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-  
-      <div class="col-md-6">
-          <div class="card h-100">
-            <div class="row g-0">
-              <div class="col-4">
-                <img src="assets/Singing Competion.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <h5 class="card-title">Singing - Solo</h5>
-                  <p class="card-text">Sing your heart out! Whether you're into soulful tunes, classical ragas, or powerful pop – step into the spotlight and let your voice do the magic</p>
-                  <a href="https://forms.gle/V9Q9PVG4f5rXSQT66" class="btn btn-primary btn-sm">Register</a>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-  
-  
-      <div class="col-md-6">
-          <div class="card h-100">
-            <div class="row g-0">
-              <div class="col-4">
-                <img src="assets/Standup comedy.avif" class="img-fluid rounded-start" alt="Tech Event 1">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <h5 class="card-title">Stand-Up Comedy</h5>
-                  <p class="card-text">Get ready to crack up the crowd! Bring your wit, punchlines, and stage presence for an unforgettable laughter riot.</p>
-                  <a href="https://forms.gle/brbqD55S8gXfRdjc7" class="btn btn-primary btn-sm">Register</a>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-  
-      <!-- Event Card 2 -->
-      <div class="col-md-6">
-        <div class="card h-100">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="assets/Fashion show.avif" class="img-fluid rounded-start" alt="Tech Event 2">
-            </div>
-            <div class="col-8">
-              <div class="card-body">
-                <h5 class="card-title">Fashion Show</h5>
-                <p class="card-text">Elegance, attitude, and expression – walk the runway and redefine style. Show us your fashion statement!</p>
-                <a href="https://forms.gle/8anT5RZvhjD3WUyg8" class="btn btn-primary btn-sm">Register</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </section>
 
   <!-- FOOTER -->
-  <footer class="bg-dark text-white text-center text-md-start py-4">
+  <footer>
     <div class="container">
-      <div class="row text-center text-md-start align-items-center">
-        <div class="col-md-3 mb-3 mb-md-0">
-          <img src="assets/JBREC LOGO.jpg" alt="Footer Logo" width="40">
-        </div>
-        <div class="col-md-6">
-          <ul class="list-unstyled mb-0">
-            <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
-            <li><a href="events.html" class="text-white text-decoration-none">Events</a></li>
-            <li><a href="contactUs.html" class="text-white text-decoration-none">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <p class="mb-1">Follow us:</p>
-          <a href="https://instagram.com/jbrecofficialsm?igshid=YzAwZjE1ZTI0Zg=="><img src="assets/insta-logo.png" alt="FB" width="20" class="me-2"></a>
-          <a href="https://www.facebook.com/jbrecofficialsm?mibextid=ZbWKwL"><img src="assets/Facebook_Logo.png" alt="IG" width="20" class="me-2"></a>
-          <a href="https://twitter.com/JbrecCollege"><img src="assets/x-logo.jpg" alt="X" width="20"></a>
-        </div>
-      </div>
-      <div class="text-center mt-3">
-        <small>&copy; Designed & Built By Vijay Siddharth Guptha|All rights reserved.</small>
+      <img src="assets/JBREC LOGO.jpg" alt="Footer Logo" width="40" class="logo">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contactUs.html">Contact</a></li>
+      </ul>
+      <div class="social">
+        <p>Follow us:</p>
+        <a href="https://instagram.com/jbrecofficialsm?igshid=YzAwZjE1ZTI0Zg=="><img src="assets/insta-logo.png"
+            alt="Instagram" width="20"></a>
+        <a href="https://www.facebook.com/jbrecofficialsm?mibextid=ZbWKwL"><img src="assets/Facebook_Logo.png"
+            alt="Facebook" width="20"></a>
+        <a href="https://twitter.com/JbrecCollege"><img src="assets/x-logo.jpg" alt="Twitter/X" width="20"></a>
       </div>
     </div>
+    <small>© Designed & Built By Vijay Siddharth Guptha | All rights reserved.</small>
   </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+      themeToggle.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+    });
+  </script>
 </body>
+
 </html>
