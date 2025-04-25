@@ -1,25 +1,27 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>College Event | Home</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+
+<body data-theme="dark">
 
   <!-- HEADER: Logo + College Name -->
   <header class="bg-light py-3 border-bottom">
     <div class="container d-flex align-items-center">
+      <button class="theme-toggle" aria-label="Toggle Theme">🌙</button>
       <img src="assets/JBREC LOGO.jpg" alt="Logo" width="80" class="me-3">
       <div>
         <h5 class="mb-0"><strong>Joginpally B.R. Engineering College</strong></h5>
         <p>Accredited by NAAC with A+, Recognized under 2(f) of UGC Act.1956, ISO 9001:2015 Certified,<br>
-        Yenkapally (V), Moinabad (M), P.O. Himayat Nagar, R.R. District, Hyderabad – 500 075.</p>
+          Yenkapally (V), Moinabad (M), P.O. Himayat Nagar, R.R. District, Hyderabad – 500 075.</p>
       </div>
     </div>
   </header>
@@ -27,9 +29,8 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -54,195 +55,511 @@
 
   <section class="contact-team">
     <h2 class="section-title">Meet the Team</h2>
-  
+
     <div class="accordion">
 
-<!-- SAC Team -->
-<div class="accordion-item">
-  <button class="accordion-toggle">SAC Team (2024 – 2025)</button>
-  <div class="accordion-content">
-    <div class="table-responsive">
-      <table class="team-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Designation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>R. Yamini Akhila</td><td>CSE – IV</td><td>President</td></tr>
-          <tr><td>Sharath Mudhiraj</td><td>EEE – IV</td><td>Vice President</td></tr>
-          <tr><td>J. Shruthi</td><td>IT – IV</td><td>Vice President</td></tr>
-          <tr><td>V. Siddharth Guptha</td><td>AIML – III</td><td>Vice President</td></tr>
-          <tr><td>H. Shirisha</td><td>CSE – IV</td><td>General Secretary</td></tr>
-          <tr><td>Y. Sri Nithya Reddy</td><td>CSE – IV</td><td>Joint Secretary</td></tr>
-          <tr><td>Nivas</td><td>ECE – IV</td><td>Joint Secretary</td></tr>
-          <tr><td>G. Tharun</td><td>AIML – III</td><td>Joint Secretary</td></tr>
-          <tr><td>Kalyan</td><td>ECE – IV</td><td>Additional Joint Secretary</td></tr>
-          <tr><td>K. Jagadeesh</td><td>CSE – IV</td><td>Assistant Secretary</td></tr>
-          <tr><td>G. Rishitha</td><td>AIML – III</td><td>Assistant Secretary</td></tr>
-          <tr><td>M. Prakash</td><td>MECH – IV</td><td>Assistant Secretary</td></tr>
-          <tr><td>Manikanta</td><td>ECE – IV</td><td>Treasurer</td></tr>
-          <tr><td>T. Dharaneesh</td><td>CSE – III</td><td>Joint Treasurer</td></tr>
-          <tr><td>M. Chaitanya</td><td>CSE – IV</td><td>Executive Member</td></tr>
-          <tr><td>Prem Chand</td><td>EEE – IV</td><td>Executive Member</td></tr>
-          <tr><td>Pavani</td><td>ECE – IV</td><td>Executive Member</td></tr>
-          <tr><td>Ragavendra</td><td>MECH – IV</td><td>Executive Member</td></tr>
-          <tr><td>Vijay</td><td>CSE – III</td><td>Executive Member</td></tr>
-          <tr><td>Nikhil</td><td>AIML – III</td><td>Executive Member</td></tr>
-        </tbody>
-      </table>
+      <!-- SAC Team -->
+      <div class="accordion-item">
+        <button class="accordion-toggle">SAC Team (2024 – 2025)</button>
+        <div class="accordion-content">
+          <div class="table-responsive">
+            <table class="team-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Designation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>R. Yamini Akhila</td>
+                  <td>CSE – IV</td>
+                  <td>President</td>
+                </tr>
+                <tr>
+                  <td>Sharath Mudhiraj</td>
+                  <td>EEE – IV</td>
+                  <td>Vice President</td>
+                </tr>
+                <tr>
+                  <td>J. Shruthi</td>
+                  <td>IT – IV</td>
+                  <td>Vice President</td>
+                </tr>
+                <tr>
+                  <td>V. Siddharth Guptha</td>
+                  <td>AIML – III</td>
+                  <td>Vice President</td>
+                </tr>
+                <tr>
+                  <td>H. Shirisha</td>
+                  <td>CSE – IV</td>
+                  <td>General Secretary</td>
+                </tr>
+                <tr>
+                  <td>Y. Sri Nithya Reddy</td>
+                  <td>CSE – IV</td>
+                  <td>Joint Secretary</td>
+                </tr>
+                <tr>
+                  <td>Nivas</td>
+                  <td>ECE – IV</td>
+                  <td>Joint Secretary</td>
+                </tr>
+                <tr>
+                  <td>G. Tharun</td>
+                  <td>AIML – III</td>
+                  <td>Joint Secretary</td>
+                </tr>
+                <tr>
+                  <td>Kalyan</td>
+                  <td>ECE – IV</td>
+                  <td>Additional Joint Secretary</td>
+                </tr>
+                <tr>
+                  <td>K. Jagadeesh</td>
+                  <td>CSE – IV</td>
+                  <td>Assistant Secretary</td>
+                </tr>
+                <tr>
+                  <td>G. Rishitha</td>
+                  <td>AIML – III</td>
+                  <td>Assistant Secretary</td>
+                </tr>
+                <tr>
+                  <td>M. Prakash</td>
+                  <td>MECH – IV</td>
+                  <td>Assistant Secretary</td>
+                </tr>
+                <tr>
+                  <td>Manikanta</td>
+                  <td>ECE – IV</td>
+                  <td>Treasurer</td>
+                </tr>
+                <tr>
+                  <td>T. Dharaneesh</td>
+                  <td>CSE – III</td>
+                  <td>Joint Treasurer</td>
+                </tr>
+                <tr>
+                  <td>M. Chaitanya</td>
+                  <td>CSE – IV</td>
+                  <td>Executive Member</td>
+                </tr>
+                <tr>
+                  <td>Prem Chand</td>
+                  <td>EEE – IV</td>
+                  <td>Executive Member</td>
+                </tr>
+                <tr>
+                  <td>Pavani</td>
+                  <td>ECE – IV</td>
+                  <td>Executive Member</td>
+                </tr>
+                <tr>
+                  <td>Ragavendra</td>
+                  <td>MECH – IV</td>
+                  <td>Executive Member</td>
+                </tr>
+                <tr>
+                  <td>Vijay</td>
+                  <td>CSE – III</td>
+                  <td>Executive Member</td>
+                </tr>
+                <tr>
+                  <td>Nikhil</td>
+                  <td>AIML – III</td>
+                  <td>Executive Member</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Technical Team -->
+      <div class="accordion-item">
+        <button class="accordion-toggle">Technical Team</button>
+        <div class="accordion-content">
+          <div class="table-responsive">
+            <table class="team-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Designation</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>V. Siddharth Guptha</td>
+                  <td>Technical Coordinator</td>
+                  <td>9989226632</td>
+                </tr>
+                <tr>
+                  <td>Rithik Singh</td>
+                  <td>Event Coordinator – Tricky Circuits</td>
+                  <td>8074762610</td>
+                </tr>
+                <tr>
+                  <td>S. Param Jyothi</td>
+                  <td>Event Volunteer – Tricky Circuits</td>
+                  <td>6305346128</td>
+                </tr>
+                <tr>
+                  <td>Sathivik Roshan</td>
+                  <td>Event Coordinator – Project Expo</td>
+                  <td>9849981937</td>
+                </tr>
+                <tr>
+                  <td>K. Tejaswini</td>
+                  <td>Event Volunteer – Project Expo / Paper Presentation</td>
+                  <td>9848812436</td>
+                </tr>
+                <tr>
+                  <td>P. Vageeshwar</td>
+                  <td>Event Coordinator – See It – Name It</td>
+                  <td>6281079914</td>
+                </tr>
+                <tr>
+                  <td>G. Saketh</td>
+                  <td>Event Coordinator – Bug Bounty</td>
+                  <td>8125409873</td>
+                </tr>
+                <tr>
+                  <td>S. Thirumalesh</td>
+                  <td>Event Volunteer – Bug Bounty</td>
+                  <td>6305705991</td>
+                </tr>
+                <tr>
+                  <td>P. Sai Keerthana</td>
+                  <td>Event Volunteer – Bug Bounty / Chatbot</td>
+                  <td>9347222326</td>
+                </tr>
+                <tr>
+                  <td>Minal Agarwal</td>
+                  <td>Event Coordinator – AI Chatbot Building</td>
+                  <td>9516811000</td>
+                </tr>
+                <tr>
+                  <td>D. Bhumika Reddy</td>
+                  <td>Event Volunteer – AI Chatbot Building</td>
+                  <td>6268566417</td>
+                </tr>
+                <tr>
+                  <td>P.H.R. Manikanta</td>
+                  <td>Event Coordinator – Mechanical Quiz</td>
+                  <td>9177250505</td>
+                </tr>
+                <tr>
+                  <td>A. Hari Charan</td>
+                  <td>Event Coordinator – Paper Presentation</td>
+                  <td>8522879848</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Non-Technical Team -->
+      <div class="accordion-item">
+        <button class="accordion-toggle">Non-Technical Team</button>
+        <div class="accordion-content">
+          <div class="table-responsive">
+            <table class="team-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Designation</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>G. Sai Rishitha </td>
+                  <td>Non Technical Lead</td>
+                  <td>7801001612</td>
+                </tr>
+                <tr>
+                  <td>K. Manikumar</td>
+                  <td>Event Coordinator – Tug of War</td>
+                  <td>9100326021</td>
+                </tr>
+                <tr>
+                  <td>K. Ravi Teja</td>
+                  <td>Event Volunteer – Tug of War</td>
+                  <td>9398730456</td>
+                </tr>
+                <tr>
+                  <td>C. Lohith</td>
+                  <td>Event Coordinator – Treasure Hunt</td>
+                  <td>7032709525</td>
+                </tr>
+                <tr>
+                  <td>G. Krithin</td>
+                  <td>Event Volunteer – Treasure Hunt</td>
+                  <td>6305156158</td>
+                </tr>
+                <tr>
+                  <td>CH. Bhavani Manasa</td>
+                  <td>Event Coordinator – Poster Presentation</td>
+                  <td>9948706451</td>
+                </tr>
+                <tr>
+                  <td>Y. Karthik</td>
+                  <td>Event Volunteer – Poster Presentation</td>
+                  <td>7569669094</td>
+                </tr>
+                <tr>
+                  <td>V. Sathwik</td>
+                  <td>Event Coordinator – Stand-up Comedy</td>
+                  <td>9949013730</td>
+                </tr>
+                <tr>
+                  <td>M. Vishnu Vardhan</td>
+                  <td>Event Volunteer – Stand-up Comedy</td>
+                  <td>9010835512</td>
+                </tr>
+                <tr>
+                  <td>G. Chandana</td>
+                  <td>Event Coordinator – Reels Competition</td>
+                  <td>9391878004</td>
+                </tr>
+                <tr>
+                  <td>V. Sadwik</td>
+                  <td>Event Volunteer – Reels Competition</td>
+                  <td>8309928941</td>
+                </tr>
+                <tr>
+                  <td>V. Anish</td>
+                  <td>Event Coordinator – Short Film Contest</td>
+                  <td>8019813866</td>
+                </tr>
+                <tr>
+                  <td>CH. Snehith</td>
+                  <td>Event Volunteer – Short Film Contest</td>
+                  <td>8790897262</td>
+                </tr>
+                <tr>
+                  <td>V. Mohith</td>
+                  <td>Event Volunteer – Short Film Contest</td>
+                  <td>9652264533</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Cultural Team -->
+      <div class="accordion-item">
+        <button class="accordion-toggle">Cultural Team</button>
+        <div class="accordion-content">
+          <div class="table-responsive">
+            <table class="team-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Designation</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A. Nikitha </td>
+                  <td>Cultural Lead</td>
+                  <td>7659965640</td>
+                </tr>
+                <tr>
+                  <td>T. Dharaneesh </td>
+                  <td>Cultural Lead</td>
+                  <td>9000311279</td>
+                </tr>
+                <tr>
+                  <td>V. Akshaya</td>
+                  <td>Event Coordinator – Solo Dance</td>
+                  <td>9676695064</td>
+                </tr>
+                <tr>
+                  <td>B. Gayathri</td>
+                  <td>Event Volunteer – Solo Dance</td>
+                  <td>8985413089</td>
+                </tr>
+                <tr>
+                  <td>B. Ankitha</td>
+                  <td>Event Coordinator – Duet Dance, Fashion Show</td>
+                  <td>6304607636</td>
+                </tr>
+                <tr>
+                  <td>C. Shiva</td>
+                  <td>Event Volunteer – Duet Dance</td>
+                  <td>9390938013</td>
+                </tr>
+                <tr>
+                  <td>Y. Dedeepya</td>
+                  <td>Event Coordinator – Group Dance</td>
+                  <td>9494602788</td>
+                </tr>
+                <tr>
+                  <td>Medhasri</td>
+                  <td>Event Volunteer – Group Dance</td>
+                  <td>9391159618</td>
+                </tr>
+                <tr>
+                  <td>Prem Kumar</td>
+                  <td>Event Volunteer – Group Dance</td>
+                  <td>6303985369</td>
+                </tr>
+                <tr>
+                  <td>K. Sai Harshini</td>
+                  <td>Event Coordinator – Solo Singing</td>
+                  <td>9391358383</td>
+                </tr>
+                <tr>
+                  <td>B. Madhavan</td>
+                  <td>Event Volunteer – Solo Singing</td>
+                  <td>7702501794</td>
+                </tr>
+                <tr>
+                  <td>P. Sravani</td>
+                  <td>Event Coordinator – Duo Singing</td>
+                  <td>7337522307</td>
+                </tr>
+                <tr>
+                  <td>K. Vaibhav</td>
+                  <td>Event Volunteer – Duo Singing</td>
+                  <td>6281633312</td>
+                </tr>
+                <tr>
+                  <td>E. Vishnuvardhan</td>
+                  <td>Event Volunteer – Duo Singing</td>
+                  <td>9347202665</td>
+                </tr>
+                <tr>
+                  <td>S. Thirumalesh</td>
+                  <td>Event Coordinator – Photography</td>
+                  <td>6305705991</td>
+                </tr>
+                <tr>
+                  <td>K. Harsha Vardhan</td>
+                  <td>Event Volunteer – Photography</td>
+                  <td>9154665307</td>
+                </tr>
+                <tr>
+                  <td>M. Saikumar</td>
+                  <td>Event Volunteer – Photography</td>
+                  <td>6281303678</td>
+                </tr>
+                <tr>
+                  <td>S. Gnaneshwar</td>
+                  <td>Event Volunteer – Fashion Show</td>
+                  <td>8179077326</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Faculty Coordinators -->
+      <div class="accordion-item">
+        <button class="accordion-toggle">Faculty Coordinators</button>
+        <div class="accordion-content">
+          <div class="table-responsive">
+            <table class="team-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>P.Y. Ramesh</td>
+                  <td>SAC FACULTY COORDINATOR</td>
+                  <td>9849240024</td>
+                </tr>
+                <tr>
+                  <td>N. Sindhu</td>
+                  <td>CSE </td>
+                  <td>8106984242</td>
+                </tr>
+                <tr>
+                  <td>Dr. Venunath</td>
+                  <td>CSE (AI&ML) </td>
+                  <td>9177069129</td>
+                </tr>
+                <tr>
+                  <td>G. Nitya</td>
+                  <td>ECE</td>
+                  <td>6383785538</td>
+                </tr>
+                <tr>
+                  <td>D. Srinivas</td>
+                  <td>EEE</td>
+                  <td>7981569483</td>
+                </tr>
+                <tr>
+                  <td>A. Vaishnavi</td>
+                  <td>MECH</td>
+                  <td>8247367862</td>
+                </tr>
+                <tr>
+                  <td>Chandra Simha</td>
+                  <td>MBA</td>
+                  <td>9908062259</td>
+                </tr>
+                <tr>
+                  <td>P. Swathi</td>
+                  <td>CSE</td>
+                  <td>8143889941</td>
+                </tr>
+                <tr>
+                  <td>N. Sudhakar</td>
+                  <td>CSE (AI&ML)</td>
+                  <td>9398828907</td>
+                </tr>
+                <tr>
+                  <td>Aleem Malq</td>
+                  <td>IT</td>
+                  <td>9642741435</td>
+                </tr>
+                <tr>
+                  <td>Dr. Khaja Mujeeb Uddin</td>
+                  <td>ECE</td>
+                  <td>9848472240</td>
+                </tr>
+                <tr>
+                  <td>G. Naveen</td>
+                  <td>EEE</td>
+                  <td>9849896923</td>
+                </tr>
+                <tr>
+                  <td>M. Harish</td>
+                  <td>MBA</td>
+                  <td>7286843233</td>
+                </tr>
+                <tr>
+                  <td>K. Lalithya</td>
+                  <td>MECH</td>
+                  <td>9390643337</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
-</div>
+  </section>
 
 
-<!-- Technical Team -->
-<div class="accordion-item">
-  <button class="accordion-toggle">Technical Team</button>
-  <div class="accordion-content">
-    <div class="table-responsive">
-      <table class="team-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Designation</th>
-            <th>Contact</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>V. Siddharth Guptha</td><td>Technical Coordinator</td><td>9989226632</td></tr>
-          <tr><td>Rithik Singh</td><td>Event Coordinator – Tricky Circuits</td><td>8074762610</td></tr>
-          <tr><td>S. Param Jyothi</td><td>Event Volunteer – Tricky Circuits</td><td>6305346128</td></tr>
-          <tr><td>Sathivik Roshan</td><td>Event Coordinator – Project Expo</td><td>9849981937</td></tr>
-          <tr><td>K. Tejaswini</td><td>Event Volunteer – Project Expo / Paper Presentation</td><td>9848812436</td></tr>
-          <tr><td>P. Vageeshwar</td><td>Event Coordinator – See It – Name It</td><td>6281079914</td></tr>
-          <tr><td>G. Saketh</td><td>Event Coordinator – Bug Bounty</td><td>8125409873</td></tr>
-          <tr><td>S. Thirumalesh</td><td>Event Volunteer – Bug Bounty</td><td>6305705991</td></tr>
-          <tr><td>P. Sai Keerthana</td><td>Event Volunteer – Bug Bounty / Chatbot</td><td>9347222326</td></tr>
-          <tr><td>Minal Agarwal</td><td>Event Coordinator – AI Chatbot Building</td><td>9516811000</td></tr>
-          <tr><td>D. Bhumika Reddy</td><td>Event Volunteer – AI Chatbot Building</td><td>6268566417</td></tr>
-          <tr><td>P.H.R. Manikanta</td><td>Event Coordinator – Mechanical Quiz</td><td>9177250505</td></tr>
-          <tr><td>A. Hari Charan</td><td>Event Coordinator – Paper Presentation</td><td>8522879848</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<!-- Non-Technical Team -->
-<div class="accordion-item">
-  <button class="accordion-toggle">Non-Technical Team</button>
-  <div class="accordion-content">
-    <div class="table-responsive">
-      <table class="team-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Designation</th>
-            <th>Contact</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>G. Sai Rishitha </td><td>Non Technical Lead</td><td>7801001612</td></tr>
-          <tr><td>K. Manikumar</td><td>Event Coordinator – Tug of War</td><td>9100326021</td></tr>
-          <tr><td>K. Ravi Teja</td><td>Event Volunteer – Tug of War</td><td>9398730456</td></tr>
-          <tr><td>C. Lohith</td><td>Event Coordinator – Treasure Hunt</td><td>7032709525</td></tr>
-          <tr><td>G. Krithin</td><td>Event Volunteer – Treasure Hunt</td><td>6305156158</td></tr>
-          <tr><td>CH. Bhavani Manasa</td><td>Event Coordinator – Poster Presentation</td><td>9948706451</td></tr>
-          <tr><td>Y. Karthik</td><td>Event Volunteer – Poster Presentation</td><td>7569669094</td></tr>
-          <tr><td>V. Sathwik</td><td>Event Coordinator – Stand-up Comedy</td><td>9949013730</td></tr>
-          <tr><td>M. Vishnu Vardhan</td><td>Event Volunteer – Stand-up Comedy</td><td>9010835512</td></tr>
-          <tr><td>G. Chandana</td><td>Event Coordinator – Reels Competition</td><td>9391878004</td></tr>
-          <tr><td>V. Sadwik</td><td>Event Volunteer – Reels Competition</td><td>8309928941</td></tr>
-          <tr><td>V. Anish</td><td>Event Coordinator – Short Film Contest</td><td>8019813866</td></tr>
-          <tr><td>CH. Snehith</td><td>Event Volunteer – Short Film Contest</td><td>8790897262</td></tr>
-          <tr><td>V. Mohith</td><td>Event Volunteer – Short Film Contest</td><td>9652264533</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-  
-<!-- Cultural Team -->
-<div class="accordion-item">
-  <button class="accordion-toggle">Cultural Team</button>
-  <div class="accordion-content">
-    <div class="table-responsive">
-      <table class="team-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Designation</th>
-            <th>Contact</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>A. Nikitha </td><td>Cultural Lead</td><td>7659965640</td></tr>
-          <tr><td>T. Dharaneesh </td><td>Cultural Lead</td><td>9000311279</td></tr>
-          <tr><td>V. Akshaya</td><td>Event Coordinator – Solo Dance</td><td>9676695064</td></tr>
-          <tr><td>B. Gayathri</td><td>Event Volunteer – Solo Dance</td><td>8985413089</td></tr>
-          <tr><td>B. Ankitha</td><td>Event Coordinator – Duet Dance, Fashion Show</td><td>6304607636</td></tr>
-          <tr><td>C. Shiva</td><td>Event Volunteer – Duet Dance</td><td>9390938013</td></tr>
-          <tr><td>Y. Dedeepya</td><td>Event Coordinator – Group Dance</td><td>9494602788</td></tr>
-          <tr><td>Medhasri</td><td>Event Volunteer – Group Dance</td><td>9391159618</td></tr>
-          <tr><td>Prem Kumar</td><td>Event Volunteer – Group Dance</td><td>6303985369</td></tr>
-          <tr><td>K. Sai Harshini</td><td>Event Coordinator – Solo Singing</td><td>9391358383</td></tr>
-          <tr><td>B. Madhavan</td><td>Event Volunteer – Solo Singing</td><td>7702501794</td></tr>
-          <tr><td>P. Sravani</td><td>Event Coordinator – Duo Singing</td><td>7337522307</td></tr>
-          <tr><td>K. Vaibhav</td><td>Event Volunteer – Duo Singing</td><td>6281633312</td></tr>
-          <tr><td>E. Vishnuvardhan</td><td>Event Volunteer – Duo Singing</td><td>9347202665</td></tr>
-          <tr><td>S. Thirumalesh</td><td>Event Coordinator – Photography</td><td>6305705991</td></tr>
-          <tr><td>K. Harsha Vardhan</td><td>Event Volunteer – Photography</td><td>9154665307</td></tr>
-          <tr><td>M. Saikumar</td><td>Event Volunteer – Photography</td><td>6281303678</td></tr>
-          <tr><td>S. Gnaneshwar</td><td>Event Volunteer – Fashion Show</td><td>8179077326</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-
-<!-- Faculty Coordinators -->
-<div class="accordion-item">
-  <button class="accordion-toggle">Faculty Coordinators</button>
-  <div class="accordion-content">
-    <div class="table-responsive">
-      <table class="team-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Contact</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>P.Y. Ramesh</td><td>SAC FACULTY COORDINATOR</td><td>9849240024</td></tr>
-          <tr><td>N. Sindhu</td><td>CSE </td><td>8106984242</td></tr>
-          <tr><td>Dr. Venunath</td><td>CSE (AI&ML) </td><td>9177069129</td></tr>
-          <tr><td>G. Nitya</td><td>ECE</td><td>6383785538</td></tr>
-          <tr><td>D. Srinivas</td><td>EEE</td><td>7981569483</td></tr>
-          <tr><td>A. Vaishnavi</td><td>MECH</td><td>8247367862</td></tr>
-          <tr><td>Chandra Simha</td><td>MBA</td><td>9908062259</td></tr>
-          <tr><td>P. Swathi</td><td>CSE</td><td>8143889941</td></tr>
-          <tr><td>N. Sudhakar</td><td>CSE (AI&ML)</td><td>9398828907</td></tr>
-          <tr><td>Aleem Malq</td><td>IT</td><td>9642741435</td></tr>
-          <tr><td>Dr. Khaja Mujeeb Uddin</td><td>ECE</td><td>9848472240</td></tr>
-          <tr><td>G. Naveen</td><td>EEE</td><td>9849896923</td></tr>
-          <tr><td>M. Harish</td><td>MBA</td><td>7286843233</td></tr>
-          <tr><td>K. Lalithya</td><td>MECH</td><td>9390643337</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
- </div>
-</section>
-  
-  
   <!-- FOOTER -->
   <footer class="bg-dark text-white text-center text-md-start py-4">
     <div class="container">
@@ -259,13 +576,15 @@
         </div>
         <div class="col-md-3">
           <p class="mb-1">Follow us:</p>
-          <a href="https://instagram.com/jbrecofficialsm?igshid=YzAwZjE1ZTI0Zg=="><img src="assets/insta-logo.png" alt="FB" width="20" class="me-2"></a>
-          <a href="https://www.facebook.com/jbrecofficialsm?mibextid=ZbWKwL"><img src="assets/Facebook_Logo.png" alt="IG" width="20" class="me-2"></a>
+          <a href="https://instagram.com/jbrecofficialsm?igshid=YzAwZjE1ZTI0Zg=="><img src="assets/insta-logo.png"
+              alt="FB" width="20" class="me-2"></a>
+          <a href="https://www.facebook.com/jbrecofficialsm?mibextid=ZbWKwL"><img src="assets/Facebook_Logo.png"
+              alt="IG" width="20" class="me-2"></a>
           <a href="https://twitter.com/JbrecCollege"><img src="assets/x-logo.jpg" alt="X" width="20"></a>
         </div>
       </div>
       <div class="text-center mt-3">
-        <small>&copy; Designed & Built By Vijay Siddharth Guptha|All rights reserved.</small>
+        <small>© Designed & Built By Vijay Siddharth Guptha|All rights reserved.</small>
       </div>
     </div>
   </footer>
@@ -275,14 +594,24 @@
 
   <script>
     const toggles = document.querySelectorAll(".accordion-toggle");
-  
+
     toggles.forEach((toggle) => {
       toggle.addEventListener("click", () => {
         const content = toggle.nextElementSibling;
         content.classList.toggle("open");
       });
     });
+
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+      themeToggle.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+    });
   </script>
-  
+
 </body>
+
 </html>
