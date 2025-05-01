@@ -12,17 +12,11 @@
   <style>
     :root {
       --bg-color: #1a0b3b;
-      /* Deep indigo for cosmic night sky */
       --text-color: #e8e8f0;
-      /* Soft starlight silver */
       --card-bg: #2b1b5e;
-      /* Slightly lighter indigo */
       --accent-color: #a100ff;
-      /* Vibrant amethyst */
       --secondary-color: #00ddeb;
-      /* Cyan glow */
       --header-bg: linear-gradient(135deg, #1a0b3b, #a100ff 50%, #00ddeb);
-      /* Cosmic indigo to amethyst and cyan */
       --hero-overlay: linear-gradient(to bottom, rgba(26, 11, 59, 0.8), rgba(161, 0, 255, 0.2));
       --nav-bg: #2b1b5e;
       --shadow-color: rgba(161, 0, 255, 0.3);
@@ -42,23 +36,14 @@
 
     [data-theme="light"] {
       --bg-color: #f5f5f5;
-      /* Soft white for light theme */
       --text-color: #1a0b3b;
-      /* Deep indigo for contrast */
       --card-bg: #ffffff;
-      /* Pure white cards */
       --accent-color: #a100ff;
-      /* Same vibrant amethyst */
       --secondary-color: #00ddeb;
-      /* Same cyan glow */
       --header-bg: linear-gradient(135deg, #1a0b3b, #a100ff 50%, #00ddeb);
-      /* Same gradient as dark */
       --hero-overlay: linear-gradient(to bottom, rgba(26, 11, 59, 0.6), rgba(161, 0, 255, 0.1));
-      /* Slightly lighter overlay */
       --nav-bg: #ffffff;
-      /* White nav for light theme */
       --shadow-color: rgba(161, 0, 255, 0.2);
-      /* Softer shadow */
     }
 
     body {
@@ -152,7 +137,16 @@
       box-shadow: 0 2px 5px var(--shadow-color);
     }
 
-    nav ul {
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+    }
+
+    .nav-menu {
       display: flex;
       justify-content: center;
       list-style: none;
@@ -161,11 +155,11 @@
       flex-wrap: wrap;
     }
 
-    nav ul li {
+    .nav-menu li {
       margin: 0 2rem;
     }
 
-    nav ul li a {
+    .nav-menu li a {
       color: var(--text-color);
       text-decoration: none;
       font-family: 'Orbitron', sans-serif;
@@ -175,12 +169,12 @@
       transition: color 0.3s ease, transform 0.3s ease;
     }
 
-    nav ul li a:hover {
+    .nav-menu li a:hover {
       color: var(--accent-color);
       transform: translateY(-5px);
     }
 
-    nav ul li a::after {
+    .nav-menu li a::after {
       content: '';
       position: absolute;
       width: 0;
@@ -191,15 +185,25 @@
       transition: width 0.3s ease;
     }
 
-    nav ul li a:hover::after {
+    .nav-menu li a:hover::after {
       width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
     }
 
     .hero-section {
       text-align: center;
-      padding: 5rem 1rem;
+      padding: 4rem 1rem;
       position: relative;
       background: url('https://source.unsplash.com/random/1600x400/?event') no-repeat center center/cover;
+      min-height: 300px;
     }
 
     .hero-section::before {
@@ -222,15 +226,13 @@
 
     .hero-section h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 700;
       margin-bottom: 1rem;
       text-transform: uppercase;
       letter-spacing: 3px;
       color: #ffffff;
-      /* Solid white for better contrast */
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      /* Subtle shadow for readability */
       animation: pulse 2s infinite;
     }
 
@@ -249,7 +251,7 @@
     }
 
     .hero-section p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 300;
       color: #fff;
       max-width: 600px;
@@ -259,8 +261,8 @@
     .about-section,
     .event-section {
       max-width: 1200px;
-      margin: 4rem auto;
-      padding: 3rem;
+      margin: 3rem auto;
+      padding: 2rem;
       background: var(--card-bg);
       border-radius: 1.5rem;
       box-shadow: 0 0 20px var(--shadow-color);
@@ -282,7 +284,7 @@
     .about-section h2,
     .event-section h2 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: var(--accent-color);
       margin-bottom: 1.5rem;
       font-weight: 700;
@@ -292,7 +294,7 @@
 
     .about-section p,
     .event-section p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--text-color);
       opacity: 0.9;
       line-height: 1.6;
@@ -300,8 +302,8 @@
 
     .about-section .about-image {
       width: 100%;
-      max-width: 200px;
-      height: 300px;
+      max-width: 180px;
+      height: 270px;
       object-fit: cover;
       border-radius: 1rem;
       border: 3px solid var(--accent-color);
@@ -321,7 +323,7 @@
     }
 
     .event-section img {
-      max-width: 120px;
+      max-width: 100px;
       border-radius: 0.5rem;
       border: 2px solid var(--accent-color);
       transition: transform 0.3s ease;
@@ -339,7 +341,7 @@
 
     footer {
       background: var(--nav-bg);
-      padding: 3rem 1rem;
+      padding: 2rem 1rem;
       text-align: center;
       border-top: 2px solid var(--accent-color);
     }
@@ -351,7 +353,7 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 3rem;
+      gap: 2rem;
     }
 
     footer img.logo {
@@ -364,7 +366,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     footer ul li a {
@@ -403,13 +405,17 @@
 
     footer small {
       display: block;
-      margin-top: 2rem;
-      font-size: 0.9rem;
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
       color: var(--text-color);
       opacity: 0.7;
     }
 
     @media (max-width: 768px) {
+      header {
+        padding: 1rem 0.5rem;
+      }
+
       header .container {
         flex-direction: column;
         text-align: center;
@@ -420,54 +426,91 @@
       }
 
       header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
 
       header p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
       }
 
-      nav ul {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
         flex-direction: column;
-        gap: 1rem;
+        width: 100%;
+        background: var(--nav-bg);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1rem;
+        box-shadow: 0 2px 5px var(--shadow-color);
       }
 
-      nav ul li {
-        margin: 0 1rem;
+      .nav-menu.active {
+        display: flex;
       }
 
-      .hero-section h1 {
-        font-size: 2.5rem;
+      .nav-menu li {
+        margin: 0.5rem 0;
       }
 
-      .hero-section p {
-        font-size: 1.1rem;
+      .hero-section {
+        padding: 3rem 1rem;
+        min-height: 250px;
       }
 
-      .about-section,
-      .event-section {
-        margin: 2rem 1rem;
-        padding: 2rem;
-      }
-
-      .about-section h2,
-      .event-section h2 {
-        font-size: 2rem;
-      }
-
-      .about-section .about-image {
-        max-width: 150px;
-        height: 225px;
-      }
-    }
-
-    @media (max-width: 576px) {
       .hero-section h1 {
         font-size: 2rem;
       }
 
       .hero-section p {
         font-size: 1rem;
+      }
+
+      .about-section,
+      .event-section {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+
+      .about-section h2,
+      .event-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .about-section .about-image {
+        max-width: 140px;
+        height: 210px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      header .container {
+        padding: 0 0.5rem;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      header p {
+        font-size: 0.8rem;
+      }
+
+      .hero-section {
+        padding: 2rem 0.5rem;
+        min-height: 200px;
+      }
+
+      .hero-section h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-section p {
+        font-size: 0.9rem;
       }
 
       .about-section .flex {
@@ -482,7 +525,11 @@
 
       .event-section .flex {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
+      }
+
+      .event-section img {
+        max-width: 80px;
       }
 
       .theme-toggle {
@@ -513,8 +560,9 @@
 
   <!-- NAVBAR -->
   <nav>
-    <div class="container mx-auto">
-      <ul>
+    <div class="nav-container">
+      <button class="hamburger" aria-label="Toggle Menu">☰</button>
+      <ul class="nav-menu">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="events.html">Events</a></li>
         <li><a href="contactUs.html">Contact Us</a></li>
@@ -527,6 +575,8 @@
     <div class="content">
       <h1>TechXplore & Aakriti 2K25</h1>
       <p>Unleash your creativity in a celebration of talent and innovation!</p>
+      <p>Sorry for the inconvenience due to the EAMCET exam</p>
+      <p>Fest was postponed to 6th and 7th</p>
     </div>
   </section>
 
@@ -586,6 +636,8 @@
   <script>
     const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
 
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -598,6 +650,10 @@
       body.setAttribute('data-theme', newTheme);
       themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
       localStorage.setItem('theme', newTheme);
+    });
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
     });
   </script>
 </body>
