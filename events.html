@@ -7,46 +7,30 @@
   <title>Events | College Fest</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;600&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;600&utm_source=cdnjs&utm_medium=cdnjs&utm_campaign=cdnjs_fonts" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
   <style>
     :root {
       --bg-color: #1a0b3b;
-      /* Deep indigo for cosmic night sky */
       --text-color: #e8e8f0;
-      /* Soft starlight silver */
       --card-bg: #2b1b5e;
-      /* Slightly lighter indigo */
       --accent-color: #a100ff;
-      /* Vibrant amethyst */
       --secondary-color: #00ddeb;
-      /* Cyan glow */
       --header-bg: linear-gradient(135deg, #1a0b3b, #a100ff 50%, #00ddeb);
-      /* Cosmic indigo to amethyst and cyan */
       --nav-bg: #2b1b5e;
       --shadow-color: rgba(161, 0, 255, 0.3);
     }
 
     [data-theme="light"] {
       --bg-color: #f5f5f5;
-      /* Soft white for light theme */
       --text-color: #1a0b3b;
-      /* Deep indigo for contrast */
       --card-bg: #ffffff;
-      /* Pure white cards */
       --accent-color: #a100ff;
-      /* Same vibrant amethyst */
       --secondary-color: #00ddeb;
-      /* Same cyan glow */
       --header-bg: linear-gradient(135deg, #1a0b3b, #a100ff 50%, #00ddeb);
-      /* Same gradient as dark */
       --hero-overlay: linear-gradient(to bottom, rgba(26, 11, 59, 0.6), rgba(161, 0, 255, 0.1));
-      /* Slightly lighter overlay */
       --nav-bg: #ffffff;
-      /* White nav for light theme */
       --shadow-color: rgba(161, 0, 255, 0.2);
-      /* Softer shadow */
     }
 
     body {
@@ -145,7 +129,16 @@
       box-shadow: 0 2px 5px var(--shadow-color);
     }
 
-    nav ul {
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+    }
+
+    .nav-menu {
       display: flex;
       justify-content: center;
       list-style: none;
@@ -154,11 +147,11 @@
       flex-wrap: wrap;
     }
 
-    nav ul li {
+    .nav-menu li {
       margin: 0 2rem;
     }
 
-    nav ul li a {
+    .nav-menu li a {
       color: var(--text-color);
       text-decoration: none;
       font-family: 'Orbitron', sans-serif;
@@ -168,11 +161,11 @@
       transition: color 0.3s ease;
     }
 
-    nav ul li a:hover {
+    .nav-menu li a:hover {
       color: var(--accent-color);
     }
 
-    nav ul li a::after {
+    .nav-menu li a::after {
       content: '';
       position: absolute;
       width: 0;
@@ -183,8 +176,17 @@
       transition: width 0.3s ease;
     }
 
-    nav ul li a:hover::after {
+    .nav-menu li a:hover::after {
       width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
     }
 
     .hero {
@@ -202,14 +204,11 @@
       right: 0;
       bottom: 0;
       background: linear-gradient(to bottom, rgba(26, 11, 59, 0.8), rgba(161, 0, 255, 0.2));
-      /* Indigo to amethyst tint */
       z-index: 1;
     }
 
     [data-theme="light"] .hero::before {
-      /* background: linear-gradient(to bottom, rgba(255, 215, 0, 0.8), rgba(218, 165, 32, 0.2)); */
       background: linear-gradient(to bottom, rgba(26, 11, 59, 0.8), rgba(161, 0, 255, 0.2));
-      /* Golden theme: gold to goldenrod tint */
     }
 
     .hero h2,
@@ -227,7 +226,6 @@
       text-transform: uppercase;
       letter-spacing: 3px;
       color: #ffffff;
-      /* Solid white for high contrast */
       animation: pulse 2s infinite;
     }
 
@@ -277,7 +275,7 @@
 
     .event-card {
       background: var(--card-bg);
-      border-radius: 15px;
+      border-radius: 20px;
       overflow: hidden;
       position: relative;
       box-shadow: 0 0 20px var(--shadow-color);
@@ -410,6 +408,10 @@
     }
 
     @media (max-width: 768px) {
+      header {
+        padding: 1rem 0.5rem;
+      }
+
       header h1 {
         font-size: 2rem;
       }
@@ -426,8 +428,28 @@
         font-size: 1.1rem;
       }
 
-      nav ul li {
-        margin: 0 1rem;
+      .hamburger {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--nav-bg);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1rem;
+        box-shadow: 0 2px 5px var(--shadow-color);
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-menu li {
+        margin: 0.5rem 0;
       }
 
       .event-section h3 {
@@ -445,17 +467,18 @@
 
     @media (max-width: 480px) {
       header .container {
-        flex-direction: column;
-        text-align: center;
+        padding: 0 0.5rem;
       }
 
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      header p {
+        font-size: 0.8rem;
+      }
       header img {
         margin: 0 0 1rem;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 1rem;
       }
 
       .hero h2 {
@@ -496,22 +519,27 @@
 
   <!-- NAVIGATION -->
   <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="events.html">Events</a></li>
-      <li><a href="contactUs.html">Contact Us</a></li>
-    </ul>
+    <div class="nav-container">
+      <button class="hamburger" aria-label="Toggle Menu">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contactUs.html">Contact Us</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- HERO SECTION -->
   <section class="hero">
     <h2>Welcome to Our College Fest</h2>
     <p>Join us for an unforgettable experience!</p>
+    <p>Sorry for the inconvenience due to the EAMCET exam</p>
+    <p>Fest was postponed to 6th and 7th</p>
   </section>
 
   <!-- TECHNICAL EVENTS -->
   <section class="event-section">
-    <h3>Technical Events (02.05.2025)</h3>
+    <h3>Technical Events (06.05.2025)</h3>
     <div class="event-grid">
       <div class="event-card">
         <img src="assets/Tricky circuits.avif" alt="Tricky Circuits">
@@ -574,7 +602,7 @@
 
   <!-- NON-TECHNICAL EVENTS -->
   <section class="event-section">
-    <h3>Non-Technical Events (02.05.2025)</h3>
+    <h3>Non-Technical Events (06.05.2025)</h3>
     <div class="event-grid">
       <div class="event-card">
         <img src="assets/Poster Presentation.avif" alt="Poster Presentation">
@@ -629,7 +657,7 @@
 
   <!-- CULTURAL EVENTS -->
   <section class="event-section">
-    <h3>Cultural Events (03.05.2025)</h3>
+    <h3>Cultural Events (07.05.2025)</h3>
     <div class="event-grid">
       <div class="event-card">
         <img src="assets/Group Dance.avif" alt="Group Dance">
@@ -714,11 +742,17 @@
   <script>
     const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
 
     themeToggle.addEventListener('click', () => {
       const currentTheme = body.getAttribute('data-theme');
       body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
       themeToggle.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+    });
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
     });
   </script>
 </body>
